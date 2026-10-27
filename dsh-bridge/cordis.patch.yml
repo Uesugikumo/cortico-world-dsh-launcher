@@ -1,0 +1,4 @@
+# coo-dsh-bridge bundle：把 DSH 的 agent 状态与过程事件挂到本地 jsonl
+- insert:
+    - id: coo-dsh-bridge
+      name: 'coo-dsh-bridge'

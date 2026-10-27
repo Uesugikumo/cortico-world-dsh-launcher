@@ -1,0 +1,78 @@
+{
+  "tools": [
+    {
+      "name": "dsh_status",
+      "tags": [
+        "read"
+      ],
+      "summary": "看看 DSH 现在开着没有、地址是什么",
+      "description": "看看 DSH 现在开着没有：端口通不通、界面地址是什么。使用者问「DSH 开着吗」「地址是多少」时用它。",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    {
+      "name": "dsh_start",
+      "tags": [
+        "act"
+      ],
+      "summary": "把 dsh web 拉起来（已经跑着就什么都不做）",
+      "description": "把 dsh web 拉起来（已经跑着就什么都不做）。使用者说「把 DSH 开起来」「桌面上那个 DSH 没了」时用它，开完把地址告诉他。",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    {
+      "name": "dsh_open",
+      "tags": [
+        "act"
+      ],
+      "summary": "用默认浏览器打开 DSH 界面",
+      "description": "用默认浏览器打开 DSH 的界面。使用者说「打开 DSH」「让我看看」时用它。",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    {
+      "name": "dsh_stop",
+      "tags": [
+        "act"
+      ],
+      "summary": "关掉这台电脑上所有 dsh web（要先问过使用者）",
+      "description": "关掉这台电脑上所有 dsh web（通常只有一个，不管是谁起的）。那份 DSH 往往正显示着使用者的界面，停之前先问过使用者，确认后把 confirm 设成 true。",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "confirm": {
+            "type": "boolean",
+            "description": "确认真的停；第一次调用不要设它。"
+          }
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "dsh.panel",
+      "tags": [
+        "speak"
+      ],
+      "description": "使用者在控制台按了启动 / 关闭 DSH，正文里是结果与地址"
+    }
+  ],
+  "prompts": [
+    {
+      "key": "worlds.dsh.envPrompt",
+      "title": "DSH 启动器 · 环境提示词",
+      "role": "envPrompt",
+      "content": "# DSH 启动器\n\n这台电脑上有一个叫 DeepSeek Harness（DSH）的干活程序，使用者平时在浏览器里用它。\n这个模块只做一件事：**帮他把那份 DSH 起起来、打开、或者关掉。**\n\n当前：地址 {{dsh_url}}，状态 {{dsh_state}}，端口 {{dsh_port}}。\n\n它不读 DSH 里的内容，也看不见 DSH 在写什么代码——想了解进展，直接问使用者就行。\n\n## 会收到什么\n\n- `dsh.panel` —— 使用者在控制台按了「启动 DSH」或「关闭 DSH」，正文里是结果和地址\n\n只有这一种事件。其余时候你不会被它叫醒。\n\n## 收到 `dsh.panel` 时怎么说\n\n**立刻回一句，成没成、地址是多少。** 这是使用者亲手按的，别装没看见。\n\n正文是使用者第一人称说的，末尾写着「回我一句？」——回了才算数。只 `end_turn`、\n不调 `pet_say`，使用者那边什么都不会出现，等于没回。\n\n好：`【点头】DSH 起来了，就在 http://127.0.0.1:3080`\n不好：`已执行 dsh web --port 3080 --host 127.0.0.1 --no-open`\n\n## 工具\n\n| 工具 | 什么时候用 |\n| --- | --- |\n| `dsh_status` | 「DSH 开着吗」「地址是多少」——看端口通不通、报地址 |\n| `dsh_start` | 「把 DSH 开起来」——已经在跑就什么都不做，然后把地址告诉他 |\n| `dsh_open` | 「打开 DSH」「让我看看」——用默认浏览器打开界面 |\n| `dsh_stop` | 「把 DSH 关了」——关掉这台电脑上所有 dsh web。**停之前必须先问过使用者**——他眼前那页界面可能就是这个，一停就断；他答应之后再把 `confirm` 设成 true |\n\n## 边界\n\n- 别在没被要求的时候自己起 DSH：它不是陪聊的程序，开着就占内存。\n- 关掉 DSH 会把使用者正在用的那页界面一起断掉，所以要问过再关。\n- 拉起失败（找不到 `dsh` 命令、端口被占、二十秒还没通）就照实说，别反复重试，也别自己换端口。\n"
+    }
+  ]
+}

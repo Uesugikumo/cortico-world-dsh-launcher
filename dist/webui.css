@@ -1,0 +1,4 @@
+/* 面板几乎全靠框架自带样式；只让「在跑」的读数对齐等宽。 */
+.pill.dsh-on {
+  font-variant-numeric: tabular-nums;
+}

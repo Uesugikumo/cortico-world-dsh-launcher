@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="DSH 桥接">
+  <rect width="512" height="512" rx="112" fill="#171b24"/>
+  <path d="M148 148h216a44 44 0 0 1 44 44v140a44 44 0 0 1-44 44H244l-60 56v-56h-36a44 44 0 0 1-44-44V192a44 44 0 0 1 44-44z" fill="#f2f5f9"/>
+  <path d="M196 216l42 42-42 42" fill="none" stroke="#171b24" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M272 300h60" fill="none" stroke="#2fd59b" stroke-width="26" stroke-linecap="round"/>
+</svg>
