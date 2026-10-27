@@ -1,8 +1,8 @@
-# cortico-world-dsh
+# cortico-world-dsh-launcher
 
 **DSH 启动器** —— Coo 的 World 扩展，替使用者把 **DeepSeek Harness（DSH）** 的 `dsh web` 拉起来、用浏览器打开、或者关掉。
 
-- npm：`cortico-world-dsh`
+- npm：`cortico-world-dsh-launcher`
 - 契约：Cortico World `api: 6`
 
 > 名字里的 `dsh` 是 DeepSeek Harness 这个程序。这个扩展**不是**「让 DSH 和 Coo 互相聊天」的桥梁：
@@ -24,7 +24,7 @@
 在 Coopanion 的扩展目录（`data/extensions`）里：
 
 ```bash
-pnpm add cortico-world-dsh
+pnpm add cortico-world-dsh-launcher
 ```
 
 然后在部署的 `config.json` 里打开：

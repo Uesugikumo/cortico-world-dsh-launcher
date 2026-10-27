@@ -1,5 +1,12 @@
 # 更新日志
 
+## 0.1.4
+
+- 包名从 `cortico-world-dsh` 改成 `cortico-world-dsh-launcher`：这个扩展只管起 / 开 / 关，
+  叫「dsh」太大了，也会挡住以后真正的桥接。`id` 仍是 `dsh`，配置节 `worlds.dsh`、事件前缀 `dsh.*` 全都不变，
+  已装好的部署无需改动（换了包名就要重新装一次）。
+- 仓库地址同步改成 `github.com/Uesugikumo/cortico-world-dsh-launcher`。
+
 ## 0.1.3
 
 - 改名：显示名从「DSH 桥接」改成「DSH 启动器」（en `DSH launcher`）。它现在只管起 / 开 / 关 / 看状态，

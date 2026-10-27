@@ -1,17 +1,17 @@
 {
-  "name": "cortico-world-dsh",
-  "version": "0.1.3",
+  "name": "cortico-world-dsh-launcher",
+  "version": "0.1.4",
   "type": "module",
   "description": "Cortico World: DSH 启动器 — 替你把 DeepSeek Harness 的 dsh web 拉起来、打开、或者关掉。",
   "license": "MIT",
   "author": "Uesugikumo (https://github.com/Uesugikumo)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Uesugikumo/cortico-world-dsh.git"
+    "url": "git+https://github.com/Uesugikumo/cortico-world-dsh-launcher.git"
   },
-  "homepage": "https://github.com/Uesugikumo/cortico-world-dsh#readme",
+  "homepage": "https://github.com/Uesugikumo/cortico-world-dsh-launcher#readme",
   "bugs": {
-    "url": "https://github.com/Uesugikumo/cortico-world-dsh/issues"
+    "url": "https://github.com/Uesugikumo/cortico-world-dsh-launcher/issues"
   },
   "keywords": [
     "cortico-world",
